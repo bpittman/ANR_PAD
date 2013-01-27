@@ -8,6 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 
 public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
 
+    private RoundedColourFragment leftFrag;
+    private RoundedColourFragment rightFrag;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +24,19 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         ab.addTab(ab.newTab().setText("Runner").setTabListener(this));
         ab.addTab(ab.newTab().setText("Corp").setTabListener(this));
         showTabsNav();
+
+        // create a couple of simple fragments as placeholders
+        final int MARGIN = 16;
+        leftFrag = new RoundedColourFragment(getResources().getColor(
+                R.color.android_green), 1f, MARGIN, MARGIN / 2, MARGIN, MARGIN);
+        rightFrag = new RoundedColourFragment(getResources().getColor(
+                R.color.honeycombish_blue), 2f, MARGIN / 2, MARGIN, MARGIN,
+                MARGIN);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.root, leftFrag);
+        ft.add(R.id.root, rightFrag);
+        ft.commit();
 	}
 
     private void showTabsNav() {
