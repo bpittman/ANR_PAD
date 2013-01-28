@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/CreditsEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/creditsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/CreditsEdit"
+        android:text="@string/credits"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/APEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/creditsLabel"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/APLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/APEdit"
+        android:text="@string/agenda_points"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

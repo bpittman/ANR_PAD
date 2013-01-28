@@ -1,13 +1,17 @@
 package com.example.anr_pad;
 
+import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import com.actionbarsherlock.app.SherlockFragment;
+
+import net.simonvt.widget.NumberPicker;
 
 public class RoundedColourFragment extends SherlockFragment {
 
@@ -50,7 +54,24 @@ public class RoundedColourFragment extends SherlockFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return mView;
+        //return mView;
+
+        Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
+        LayoutInflater localInflater = inflater.cloneInContext(context);
+        View v = localInflater.inflate(R.layout.fragment_runner, container, false);
+
+        NumberPicker creditsEdit = (NumberPicker) v.findViewById(R.id.CreditsEdit);
+        creditsEdit.setMaxValue(99);
+        creditsEdit.setMinValue(0);
+        creditsEdit.setFocusable(true);
+        creditsEdit.setFocusableInTouchMode(true);
+
+        NumberPicker APEdit = (NumberPicker) v.findViewById(R.id.APEdit);
+        APEdit.setMaxValue(99);
+        APEdit.setMinValue(0);
+        APEdit.setFocusable(true);
+        APEdit.setFocusableInTouchMode(true);
+        return v;
     }
 
 }
