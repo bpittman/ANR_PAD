@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
         android:ems="10"
         android:inputType="number" />
 
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/creditsLabel"
+        android:layout_marginLeft="30dip"
         android:ems="10"
         android:inputType="number" />
 
@@ -38,4 +40,41 @@
         android:text="@string/agenda_points"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/TagsEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/APLabel"
+        android:layout_marginLeft="30dip"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/TagsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/TagsEdit"
+        android:text="@string/tags"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/BrainDamageEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/TagsLabel"
+        android:layout_marginLeft="30dip"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/BrainDamageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/BrainDamageEdit"
+        android:text="@string/brain_damage"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 </RelativeLayout>

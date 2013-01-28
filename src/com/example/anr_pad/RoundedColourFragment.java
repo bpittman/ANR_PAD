@@ -60,18 +60,21 @@ public class RoundedColourFragment extends SherlockFragment {
         LayoutInflater localInflater = inflater.cloneInContext(context);
         View v = localInflater.inflate(R.layout.fragment_runner, container, false);
 
-        NumberPicker creditsEdit = (NumberPicker) v.findViewById(R.id.CreditsEdit);
-        creditsEdit.setMaxValue(99);
-        creditsEdit.setMinValue(0);
-        creditsEdit.setFocusable(true);
-        creditsEdit.setFocusableInTouchMode(true);
+        initializeNumberPicker(v.findViewById(R.id.CreditsEdit));
+        initializeNumberPicker(v.findViewById(R.id.APEdit));
+        initializeNumberPicker(v.findViewById(R.id.TagsEdit));
+        initializeNumberPicker(v.findViewById(R.id.BrainDamageEdit));
 
-        NumberPicker APEdit = (NumberPicker) v.findViewById(R.id.APEdit);
-        APEdit.setMaxValue(99);
-        APEdit.setMinValue(0);
-        APEdit.setFocusable(true);
-        APEdit.setFocusableInTouchMode(true);
         return v;
     }
 
+    private void initializeNumberPicker(View v)
+    {
+        NumberPicker n = (NumberPicker) v;
+        n.setMaxValue(99);
+        n.setMinValue(0);
+        n.setFocusable(true);
+        n.setFocusableInTouchMode(true);
+        return;
+    }
 }
