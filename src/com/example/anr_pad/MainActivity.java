@@ -5,6 +5,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.WindowManager;
 
 public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
 
@@ -15,6 +16,9 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
 		final ActionBar ab = getSupportActionBar();
 
         // set defaults for logo & home up
