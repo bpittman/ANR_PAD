@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/CorpCreditsEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/CorpCreditsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/CorpCreditsEdit"
+        android:text="@string/credits"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/CorpAPEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/CorpCreditsLabel"
+        android:layout_marginLeft="30dip"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/CorpAPLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/CorpAPEdit"
+        android:text="@string/agenda_points"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <net.simonvt.widget.NumberPicker
+        android:id="@+id/BadPublicityEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/CorpAPLabel"
+        android:layout_marginLeft="30dip"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/BadPublicityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/BadPublicityEdit"
+        android:text="@string/bad_publicity"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

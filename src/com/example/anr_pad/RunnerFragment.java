@@ -13,7 +13,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 
 import net.simonvt.widget.NumberPicker;
 
-public class RoundedColourFragment extends SherlockFragment {
+public class RunnerFragment extends SherlockFragment {
 
     private View mView;
     private int mColour;
@@ -21,11 +21,11 @@ public class RoundedColourFragment extends SherlockFragment {
     private int marginLeft, marginRight, marginTop, marginBottom;
 
     // need a public empty constructor for framework to instantiate
-    public RoundedColourFragment() {
+    public RunnerFragment() {
 
     }
 
-    public RoundedColourFragment(int colour, float weight, int margin_left,
+    public RunnerFragment(int colour, float weight, int margin_left,
             int margin_right, int margin_top, int margin_bottom) {
         mColour = colour;
         mWeight = weight;
@@ -38,7 +38,7 @@ public class RoundedColourFragment extends SherlockFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mView = new View(getActivity());
+        /*mView = new View(getActivity());
 
         GradientDrawable background = (GradientDrawable) getResources()
                 .getDrawable(R.drawable.rounded_rect);
@@ -49,6 +49,7 @@ public class RoundedColourFragment extends SherlockFragment {
                 LayoutParams.FILL_PARENT, mWeight);
         lp.setMargins(marginLeft, marginTop, marginRight, marginBottom);
         mView.setLayoutParams(lp);
+        */
     }
 
     @Override

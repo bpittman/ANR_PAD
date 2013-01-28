@@ -9,8 +9,9 @@ import android.view.WindowManager;
 
 public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
 
-    private RoundedColourFragment leftFrag;
-    private RoundedColourFragment rightFrag;
+    private RunnerFragment runnerFrag;
+    private CorpFragment corpFrag;
+    int firstTime;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +32,19 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
         // create a couple of simple fragments as placeholders
         final int MARGIN = 16;
-        leftFrag = new RoundedColourFragment(getResources().getColor(
+        runnerFrag = new RunnerFragment(getResources().getColor(
                 R.color.android_green), 1f, MARGIN, MARGIN / 2, MARGIN, MARGIN);
-        rightFrag = new RoundedColourFragment(getResources().getColor(
+        corpFrag = new CorpFragment(getResources().getColor(
                 R.color.honeycombish_blue), 2f, MARGIN / 2, MARGIN, MARGIN,
                 MARGIN);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.root, leftFrag);
-        ft.add(R.id.root, rightFrag);
+        ft.add(R.id.root, runnerFrag);
+        ft.add(R.id.root, corpFrag);
+        ft.show(runnerFrag);
+        ft.hide(corpFrag);
         ft.commit();
+        firstTime = 0;
 	}
 
     private void showTabsNav() {
@@ -52,11 +56,49 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
     }
 
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        // FIXME implement this
+        if (firstTime == 0) {
+            firstTime = 1;
+            return;
+        }
+        switch (tab.getPosition()) {
+        case 0:
+            ft.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,
+                                   android.R.anim.fade_in,android.R.anim.fade_out);
+            ft.show(runnerFrag);
+            break;
+        case 1:
+            ft.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,
+                                   android.R.anim.fade_in,android.R.anim.fade_out);
+            ft.show(corpFrag);
+            break;
+        }
+        /*if (tab.getText() == "Runner") {
+            //RunnerFragment rf = new RunnerFragment();
+            ft.replace(R.id.root, runnerFrag);
+            //ft.commit();
+        }
+        else if (tab.getText() == "Corp") {
+            //CorpFragment cf = new CorpFragment();
+            ft.replace(R.id.root, corpFrag);
+            //ft.commit();
+        }*/
     }
 
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-        // FIXME implement this
+        switch (tab.getPosition()) {
+        case 0:
+            ft.hide(runnerFrag);
+            break;
+        case 1:
+            ft.hide(corpFrag);
+            break;
+        }
+        /*if (tab.getText() == "Runner") {
+            ft1.remove(runnerFrag);
+        }
+        if (tab.getText() == "Corp") {
+            ft1.remove(corpFrag);
+        }*/
     }
 
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
