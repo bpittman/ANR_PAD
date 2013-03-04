@@ -26,10 +26,6 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         ab.setDisplayHomeAsUpEnabled(false);
         ab.setDisplayUseLogoEnabled(false);
 
-        ab.addTab(ab.newTab().setText("Runner").setTabListener(this));
-        ab.addTab(ab.newTab().setText("Corp").setTabListener(this));
-        showTabsNav();
-
         // create a couple of simple fragments as placeholders
         final int MARGIN = 16;
         runnerFrag = new RunnerFragment(getResources().getColor(
@@ -38,11 +34,13 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
                 R.color.honeycombish_blue), 2f, MARGIN / 2, MARGIN, MARGIN,
                 MARGIN);
 
+        ab.addTab(ab.newTab().setText("Runner").setTabListener(this));
+        ab.addTab(ab.newTab().setText("Corp").setTabListener(this));
+        showTabsNav();
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.root, runnerFrag);
         ft.add(R.id.root, corpFrag);
-        ft.show(runnerFrag);
-        ft.hide(corpFrag);
         ft.commit();
         firstTime = 0;
 	}
@@ -56,10 +54,6 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
     }
 
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        if (firstTime == 0) {
-            firstTime = 1;
-            return;
-        }
         switch (tab.getPosition()) {
         case 0:
             ft.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out,
@@ -72,16 +66,6 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
             ft.show(corpFrag);
             break;
         }
-        /*if (tab.getText() == "Runner") {
-            //RunnerFragment rf = new RunnerFragment();
-            ft.replace(R.id.root, runnerFrag);
-            //ft.commit();
-        }
-        else if (tab.getText() == "Corp") {
-            //CorpFragment cf = new CorpFragment();
-            ft.replace(R.id.root, corpFrag);
-            //ft.commit();
-        }*/
     }
 
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
@@ -93,12 +77,6 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
             ft.hide(corpFrag);
             break;
         }
-        /*if (tab.getText() == "Runner") {
-            ft1.remove(runnerFrag);
-        }
-        if (tab.getText() == "Corp") {
-            ft1.remove(corpFrag);
-        }*/
     }
 
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
