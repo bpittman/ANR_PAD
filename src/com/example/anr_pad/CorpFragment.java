@@ -60,18 +60,19 @@ public class CorpFragment extends SherlockFragment {
         LayoutInflater localInflater = inflater.cloneInContext(context);
         View v = localInflater.inflate(R.layout.fragment_corp, container, false);
 
-        initializeNumberPicker(v.findViewById(R.id.CorpCreditsEdit));
-        initializeNumberPicker(v.findViewById(R.id.CorpAPEdit));
-        initializeNumberPicker(v.findViewById(R.id.BadPublicityEdit));
+        initializeNumberPicker(v.findViewById(R.id.CorpCreditsEdit),0,99,5);
+        initializeNumberPicker(v.findViewById(R.id.CorpAPEdit),0,9,0);
+        initializeNumberPicker(v.findViewById(R.id.BadPublicityEdit),0,99,0);
 
         return v;
     }
 
-    private void initializeNumberPicker(View v)
+    private void initializeNumberPicker(View v, int min, int max, int value)
     {
         NumberPicker n = (NumberPicker) v;
-        n.setMaxValue(99);
-        n.setMinValue(0);
+        n.setMaxValue(max);
+        n.setMinValue(min);
+        n.setValue(value);
         n.setFocusable(true);
         n.setFocusableInTouchMode(true);
         return;

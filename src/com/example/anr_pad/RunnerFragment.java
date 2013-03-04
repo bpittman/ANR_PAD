@@ -61,19 +61,20 @@ public class RunnerFragment extends SherlockFragment {
         LayoutInflater localInflater = inflater.cloneInContext(context);
         View v = localInflater.inflate(R.layout.fragment_runner, container, false);
 
-        initializeNumberPicker(v.findViewById(R.id.CreditsEdit));
-        initializeNumberPicker(v.findViewById(R.id.APEdit));
-        initializeNumberPicker(v.findViewById(R.id.TagsEdit));
-        initializeNumberPicker(v.findViewById(R.id.BrainDamageEdit));
+        initializeNumberPicker(v.findViewById(R.id.CreditsEdit),0,99,5);
+        initializeNumberPicker(v.findViewById(R.id.APEdit),0,9,0);
+        initializeNumberPicker(v.findViewById(R.id.TagsEdit),0,99,0);
+        initializeNumberPicker(v.findViewById(R.id.BrainDamageEdit),0,99,0);
 
         return v;
     }
 
-    private void initializeNumberPicker(View v)
+    private void initializeNumberPicker(View v, int min, int max, int value)
     {
         NumberPicker n = (NumberPicker) v;
-        n.setMaxValue(99);
-        n.setMinValue(0);
+        n.setMaxValue(max);
+        n.setMinValue(min);
+        n.setValue(value);
         n.setFocusable(true);
         n.setFocusableInTouchMode(true);
         return;
