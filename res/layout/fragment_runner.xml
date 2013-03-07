@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <net.simonvt.widget.NumberPicker
+    <net.simonvt.numberpicker.NumberPicker
         android:id="@+id/CreditsEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,60 +21,44 @@
         android:text="@string/credits"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <net.simonvt.widget.NumberPicker
-        android:id="@+id/APEdit"
+    <LinearLayout
+        android:id="@+id/runnerStatsBoxLayout"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/creditsLabel"
         android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_toRightOf="@+id/creditsLabel">
 
-    <TextView
-        android:id="@+id/APLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/APEdit"
-        android:text="@string/agenda_points"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/runnerAPLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/agenda_points"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:onClick="APLabelClicked"
+            android:clickable="true" />
 
-    <net.simonvt.widget.NumberPicker
-        android:id="@+id/TagsEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/APLabel"
-        android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/runnerLinkLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
-        android:id="@+id/TagsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/TagsEdit"
-        android:text="@string/tags"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/runnerTagsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tags"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <net.simonvt.widget.NumberPicker
-        android:id="@+id/BrainDamageEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/TagsLabel"
-        android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/runnerBrainDamageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brain_damage"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/BrainDamageLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/BrainDamageEdit"
-        android:text="@string/brain_damage"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 </RelativeLayout>

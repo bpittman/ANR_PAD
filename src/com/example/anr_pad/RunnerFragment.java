@@ -3,15 +3,18 @@ package com.example.anr_pad;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
-import com.actionbarsherlock.app.SherlockFragment;
 
-import net.simonvt.widget.NumberPicker;
+import com.actionbarsherlock.app.SherlockFragment;
+import net.simonvt.numberpicker.NumberPicker;
 
 public class RunnerFragment extends SherlockFragment {
 
@@ -19,6 +22,7 @@ public class RunnerFragment extends SherlockFragment {
     private int mColour;
     private float mWeight;
     private int marginLeft, marginRight, marginTop, marginBottom;
+    private OnClickListener clickListener;
 
     // need a public empty constructor for framework to instantiate
     public RunnerFragment() {
@@ -62,9 +66,19 @@ public class RunnerFragment extends SherlockFragment {
         View v = localInflater.inflate(R.layout.fragment_runner, container, false);
 
         initializeNumberPicker(v.findViewById(R.id.CreditsEdit),0,99,5);
-        initializeNumberPicker(v.findViewById(R.id.APEdit),0,9,0);
-        initializeNumberPicker(v.findViewById(R.id.TagsEdit),0,99,0);
-        initializeNumberPicker(v.findViewById(R.id.BrainDamageEdit),0,99,0);
+
+        clickListener = new OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                switch(v.getId()) {
+                   case R.id.runnerAPLabel:
+                      APLabelClicked(v);
+                      break;
+                }
+            }
+        };
+
+        v.findViewById(R.id.runnerAPLabel).setOnClickListener(clickListener);
 
         return v;
     }
@@ -78,5 +92,11 @@ public class RunnerFragment extends SherlockFragment {
         n.setFocusable(true);
         n.setFocusableInTouchMode(true);
         return;
+    }
+
+    public void APLabelClicked(View v) {
+        FragmentManager fm = getChildFragmentManager();
+        NumberPickerDialog numberPickerDialog = new NumberPickerDialog();
+        numberPickerDialog.show(fm, "fragment_edit_name");
     }
 }
