@@ -9,5 +9,7 @@
     <string name="tags">Tags</string>
     <string name="brain_damage">Brain Damage</string>
     <string name="bad_publicity">Bad Publicity</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

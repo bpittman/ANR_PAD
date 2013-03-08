@@ -82,4 +82,12 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         // FIXME implement this
     }
+
+    public void doPositiveClick() {
+        // TODO Auto-generated method stub
+    }
+
+    public void doNegativeClick() {
+        // TODO Auto-generated method stub
+    }
 }

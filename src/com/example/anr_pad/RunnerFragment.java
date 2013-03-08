@@ -74,11 +74,23 @@ public class RunnerFragment extends SherlockFragment {
                    case R.id.runnerAPLabel:
                       APLabelClicked(v);
                       break;
+                   case R.id.runnerLinkLabel:
+                       linkLabelClicked(v);
+                       break;
+                   case R.id.runnerTagsLabel:
+                       tagsLabelClicked(v);
+                       break;
+                   case R.id.runnerBrainDamageLabel:
+                       brainDamageLabelClicked(v);
+                       break;
                 }
             }
         };
 
         v.findViewById(R.id.runnerAPLabel).setOnClickListener(clickListener);
+        v.findViewById(R.id.runnerLinkLabel).setOnClickListener(clickListener);
+        v.findViewById(R.id.runnerTagsLabel).setOnClickListener(clickListener);
+        v.findViewById(R.id.runnerBrainDamageLabel).setOnClickListener(clickListener);
 
         return v;
     }
@@ -96,7 +108,25 @@ public class RunnerFragment extends SherlockFragment {
 
     public void APLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
-        NumberPickerDialog numberPickerDialog = new NumberPickerDialog();
-        numberPickerDialog.show(fm, "fragment_edit_name");
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set AP", 0, 10, 0);
+        numberPickerDialog.show(fm, "fragment_set_ap");
+    }
+
+    public void linkLabelClicked(View v) {
+        FragmentManager fm = getChildFragmentManager();
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Link", 0, 99, 0);
+        numberPickerDialog.show(fm, "fragment_set_link");
+    }
+
+    public void tagsLabelClicked(View v) {
+        FragmentManager fm = getChildFragmentManager();
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Tags", 0, 99, 0);
+        numberPickerDialog.show(fm, "fragment_set_tags");
+    }
+
+    public void brainDamageLabelClicked(View v) {
+        FragmentManager fm = getChildFragmentManager();
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Brain Damage", 0, 99, 0);
+        numberPickerDialog.show(fm, "fragment_set_brain_damage");
     }
 }

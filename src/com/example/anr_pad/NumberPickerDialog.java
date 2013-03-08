@@ -1,14 +1,16 @@
 package com.example.anr_pad;
 
-import net.simonvt.numberpicker.NumberPicker;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.actionbarsherlock.app.SherlockDialogFragment;
+import net.simonvt.numberpicker.NumberPicker;
 
 public class NumberPickerDialog extends SherlockDialogFragment {
 
@@ -18,19 +20,54 @@ public class NumberPickerDialog extends SherlockDialogFragment {
         // Empty constructor required for DialogFragment
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-    	Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
-        LayoutInflater localInflater = inflater.cloneInContext(context);
-        View view = localInflater.inflate(R.layout.popup, container, false);
-        mNumberPicker = (NumberPicker) view.findViewById(R.id.popupNumberPicker);
-        initializeNumberPicker(mNumberPicker,0,10,0);
-        getDialog().setTitle("Set AP");
+    static NumberPickerDialog newInstance(String title, int min, int max, int value) {
+        NumberPickerDialog f = new NumberPickerDialog();
 
-        return view;
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        args.putInt("min", min);
+        args.putInt("max", max);
+        args.putInt("value", value);
+        f.setArguments(args);
+
+        return f;
     }
-    
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        String title = getArguments().getString("title");
+        int min = getArguments().getInt("min");
+        int max = getArguments().getInt("max");
+        int value = getArguments().getInt("value");
+
+        Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
+        LayoutInflater factory = LayoutInflater.from(getActivity());
+        LayoutInflater localInflater = factory.cloneInContext(context);
+        final View view = localInflater.inflate(R.layout.popup, null);
+
+        mNumberPicker = (NumberPicker) view.findViewById(R.id.popupNumberPicker);
+        initializeNumberPicker(mNumberPicker,min,max,value);
+
+        return new AlertDialog.Builder(getActivity())
+                .setTitle(title)
+                .setView(view)
+                .setPositiveButton(R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ((MainActivity)getActivity()).doPositiveClick();
+                        }
+                    }
+                )
+                .setNegativeButton(R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ((MainActivity)getActivity()).doNegativeClick();
+                        }
+                    }
+                )
+                .create();
+    }
+
     private void initializeNumberPicker(View v, int min, int max, int value)
     {
         NumberPicker n = (NumberPicker) v;
