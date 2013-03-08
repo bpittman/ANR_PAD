@@ -40,10 +40,8 @@ public class NumberPickerDialog extends SherlockDialogFragment {
         int max = getArguments().getInt("max");
         int value = getArguments().getInt("value");
 
-        Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
         LayoutInflater factory = LayoutInflater.from(getActivity());
-        LayoutInflater localInflater = factory.cloneInContext(context);
-        final View view = localInflater.inflate(R.layout.popup, null);
+        final View view = factory.inflate(R.layout.popup, null);
 
         mNumberPicker = (NumberPicker) view.findViewById(R.id.popupNumberPicker);
         initializeNumberPicker(mNumberPicker,min,max,value);

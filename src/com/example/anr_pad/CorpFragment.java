@@ -56,9 +56,7 @@ public class CorpFragment extends SherlockFragment {
             Bundle savedInstanceState) {
         //return mView;
 
-        Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
-        LayoutInflater localInflater = inflater.cloneInContext(context);
-        View v = localInflater.inflate(R.layout.fragment_corp, container, false);
+        View v = inflater.inflate(R.layout.fragment_corp, container, false);
 
         initializeNumberPicker(v.findViewById(R.id.CorpCreditsEdit),0,99,5);
         initializeNumberPicker(v.findViewById(R.id.CorpAPEdit),0,9,0);

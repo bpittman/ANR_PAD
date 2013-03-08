@@ -61,9 +61,7 @@ public class RunnerFragment extends SherlockFragment {
             Bundle savedInstanceState) {
         //return mView;
 
-        Context context = new ContextThemeWrapper(getActivity(), R.style.SampleTheme);
-        LayoutInflater localInflater = inflater.cloneInContext(context);
-        View v = localInflater.inflate(R.layout.fragment_runner, container, false);
+        View v = inflater.inflate(R.layout.fragment_runner, container, false);
 
         initializeNumberPicker(v.findViewById(R.id.CreditsEdit),0,99,5);
 
