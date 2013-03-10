@@ -1,6 +1,5 @@
 package com.example.anr_pad;
 
-import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;

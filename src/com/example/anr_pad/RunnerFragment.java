@@ -14,9 +14,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 
 import com.actionbarsherlock.app.SherlockFragment;
+import com.example.anr_pad.NumberPickerDialog.NumberPickerDialogListener;
+
 import net.simonvt.numberpicker.NumberPicker;
 
-public class RunnerFragment extends SherlockFragment {
+public class RunnerFragment extends SherlockFragment implements NumberPickerDialogListener{
 
     private View mView;
     private int mColour;
@@ -106,25 +108,46 @@ public class RunnerFragment extends SherlockFragment {
 
     public void APLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
-        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set AP", 0, 10, 0);
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
+                this, getString(R.string.agenda_points), 0, 10, 0);
         numberPickerDialog.show(fm, "fragment_set_ap");
     }
 
     public void linkLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
-        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Link", 0, 99, 0);
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
+                this, getString(R.string.link), 0, 99, 0);
         numberPickerDialog.show(fm, "fragment_set_link");
     }
 
     public void tagsLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
-        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Tags", 0, 99, 0);
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
+                this, getString(R.string.tags), 0, 99, 0);
         numberPickerDialog.show(fm, "fragment_set_tags");
     }
 
     public void brainDamageLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
-        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance("Set Brain Damage", 0, 99, 0);
+        NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
+                this, getString(R.string.brain_damage), 0, 99, 0);
         numberPickerDialog.show(fm, "fragment_set_brain_damage");
+    }
+
+    @Override
+    public void dialogValueSet(String name, int value) {
+        MainActivity activity = (MainActivity) getActivity();
+        if(name == getString(R.string.agenda_points)) {
+            activity.setRunnerAP(value);
+        }
+        else if(name == getString(R.string.link)) {
+            activity.setRunnerLink(value);
+        }
+        else if(name == getString(R.string.tags)) {
+            activity.setRunnerTags(value);
+        }
+        else if(name == getString(R.string.brain_damage)) {
+            activity.setRunnerBrainDamage(value);
+        }
     }
 }

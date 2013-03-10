@@ -5,13 +5,59 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.WindowManager;
 
 public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
 
     private RunnerFragment runnerFrag;
     private CorpFragment corpFrag;
-    int firstTime;
+
+    private int runnerCredits = 5;
+    private int runnerAP = 0;
+    private int runnerLink = 0;
+    private int runnerTags = 0;
+    private int runnerBrainDamage = 0;
+
+    public int getRunnerCredits() {
+        return runnerCredits;
+    }
+
+    public int getRunnerAP() {
+        return runnerAP;
+    }
+
+    public int getRunnerLink() {
+        return runnerLink;
+    }
+
+    public int getRunnerTags() {
+        return runnerTags;
+    }
+
+    public int getRunnerBrainDamage() {
+        return runnerBrainDamage;
+    }
+
+    public void setRunnerCredits(int value) {
+        runnerCredits = value;
+    }
+
+    public void setRunnerAP(int value) {
+        runnerAP = value;
+    }
+
+    public void setRunnerLink(int value) {
+        runnerLink = value;
+    }
+
+    public void setRunnerTags(int value) {
+        runnerTags = value;
+    }
+
+    public void setRunnerBrainDamage(int value) {
+        runnerBrainDamage = value;
+    }
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +88,6 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         ft.add(R.id.root, runnerFrag);
         ft.add(R.id.root, corpFrag);
         ft.commit();
-        firstTime = 0;
 	}
 
     private void showTabsNav() {
@@ -81,13 +126,5 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         // FIXME implement this
-    }
-
-    public void doPositiveClick() {
-        // TODO Auto-generated method stub
-    }
-
-    public void doNegativeClick() {
-        // TODO Auto-generated method stub
     }
 }
