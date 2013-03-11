@@ -3,7 +3,7 @@
     android:layout_height="match_parent" >
 
     <net.simonvt.numberpicker.NumberPicker
-        android:id="@+id/CorpCreditsEdit"
+        android:id="@+id/corpCreditsEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -13,50 +13,35 @@
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/CorpCreditsLabel"
+        android:id="@+id/corpCreditsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/CorpCreditsEdit"
+        android:layout_toRightOf="@+id/corpCreditsEdit"
         android:text="@string/credits"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <net.simonvt.numberpicker.NumberPicker
-        android:id="@+id/CorpAPEdit"
+    <LinearLayout
+        android:id="@+id/runnerStatsBoxLayout"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/CorpCreditsLabel"
         android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_toRightOf="@+id/corpCreditsLabel">
 
-    <TextView
-        android:id="@+id/CorpAPLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/CorpAPEdit"
-        android:text="@string/agenda_points"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/corpAPLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/agenda_points"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <net.simonvt.numberpicker.NumberPicker
-        android:id="@+id/BadPublicityEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/CorpAPLabel"
-        android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/BadPublicityLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/BadPublicityEdit"
-        android:text="@string/bad_publicity"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        <TextView
+            android:id="@+id/corpBadPublicityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bad_publicity"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
 </RelativeLayout>

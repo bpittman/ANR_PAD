@@ -3,7 +3,7 @@
     android:layout_height="match_parent" >
 
     <net.simonvt.numberpicker.NumberPicker
-        android:id="@+id/CreditsEdit"
+        android:id="@+id/runnerCreditsEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -13,11 +13,11 @@
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/creditsLabel"
+        android:id="@+id/runnerCreditsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/CreditsEdit"
+        android:layout_toRightOf="@+id/runnerCreditsEdit"
         android:text="@string/credits"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -28,16 +28,14 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
-        android:layout_toRightOf="@+id/creditsLabel">
+        android:layout_toRightOf="@+id/runnerCreditsLabel">
 
         <TextView
             android:id="@+id/runnerAPLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/agenda_points"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:onClick="APLabelClicked"
-            android:clickable="true" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/runnerLinkLabel"

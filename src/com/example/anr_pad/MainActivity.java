@@ -20,6 +20,10 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
     private int runnerTags = 0;
     private int runnerBrainDamage = 0;
 
+    private int corpCredits = 5;
+    private int corpAP = 0;
+    private int corpBadPublicity = 0;
+
     public int getRunnerCredits() {
         return runnerCredits;
     }
@@ -38,6 +42,18 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
     public int getRunnerBrainDamage() {
         return runnerBrainDamage;
+    }
+
+    public int getCorpCredits() {
+        return corpCredits;
+    }
+
+    public int getCorpAP() {
+        return corpAP;
+    }
+
+    public int getCorpBadPublicity() {
+        return corpBadPublicity;
     }
 
     public void setRunnerCredits(int value) {
@@ -66,6 +82,18 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         runnerBrainDamage = value;
         TextView runnerBDTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerBrainDamageLabel);
         runnerBDTextView.setText(Integer.toString(value) + " " + getString(R.string.brain_damage));
+    }
+
+    public void setCorpAP(int value) {
+        corpAP = value;
+        TextView corpAPTextView = (TextView) corpFrag.getView().findViewById(R.id.corpAPLabel);
+        corpAPTextView.setText(Integer.toString(value) + " " + getString(R.string.agenda_points));
+    }
+
+    public void setCorpBadPublicity(int value) {
+        corpBadPublicity = value;
+        TextView corpBadPublicityTextView = (TextView) corpFrag.getView().findViewById(R.id.corpBadPublicityLabel);
+        corpBadPublicityTextView.setText(Integer.toString(value) + " " + getString(R.string.bad_publicity));
     }
 
 	@Override

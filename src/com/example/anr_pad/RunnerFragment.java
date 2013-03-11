@@ -67,7 +67,7 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
 
         View v = inflater.inflate(R.layout.fragment_runner, container, false);
 
-        initializeNumberPicker(v.findViewById(R.id.CreditsEdit),0,99,5);
+        initializeNumberPicker(v.findViewById(R.id.runnerCreditsEdit),0,99,5);
 
         clickListener = new OnClickListener() {
             @Override
@@ -150,18 +150,17 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
 
     @Override
     public void dialogValueSet(String name, int value) {
-        MainActivity activity = (MainActivity) getActivity();
         if(name == getString(R.string.agenda_points)) {
-            activity.setRunnerAP(value);
+            mActivity.setRunnerAP(value);
         }
         else if(name == getString(R.string.link)) {
-            activity.setRunnerLink(value);
+            mActivity.setRunnerLink(value);
         }
         else if(name == getString(R.string.tags)) {
-            activity.setRunnerTags(value);
+            mActivity.setRunnerTags(value);
         }
         else if(name == getString(R.string.brain_damage)) {
-            activity.setRunnerBrainDamage(value);
+            mActivity.setRunnerBrainDamage(value);
         }
     }
 }
