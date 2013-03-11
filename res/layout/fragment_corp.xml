@@ -2,11 +2,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <TextView
+        android:id="@+id/corpClicksLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:text="@string/clicks"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/corpClicksValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/corpClicksLabel"
+        android:layout_alignLeft="@+id/corpClicksLabel"
+        android:layout_alignRight="@+id/corpClicksLabel"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="3"
+        android:textSize="35sp" />
+
     <net.simonvt.numberpicker.NumberPicker
         android:id="@+id/corpCreditsEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/corpClicksLabel"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
         android:ems="10"

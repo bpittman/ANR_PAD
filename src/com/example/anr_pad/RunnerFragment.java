@@ -73,6 +73,9 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
             @Override
             public void onClick(final View v) {
                 switch(v.getId()) {
+                   case R.id.runnerClicksValue:
+                      clicksLabelClicked(v);
+                      break;
                    case R.id.runnerAPLabel:
                       APLabelClicked(v);
                       break;
@@ -91,16 +94,19 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
 
         mActivity = (MainActivity) getActivity();
 
+        TextView runnerClicksTextView = (TextView) v.findViewById(R.id.runnerClicksValue);
         TextView runnerAPTextView = (TextView) v.findViewById(R.id.runnerAPLabel);
         TextView runnerLinkTextView = (TextView) v.findViewById(R.id.runnerLinkLabel);
         TextView runnerTagsTextView = (TextView) v.findViewById(R.id.runnerTagsLabel);
         TextView runnerBDTextView = (TextView) v.findViewById(R.id.runnerBrainDamageLabel);
 
+        runnerClicksTextView.setOnClickListener(clickListener);
         runnerAPTextView.setOnClickListener(clickListener);
         runnerLinkTextView.setOnClickListener(clickListener);
         runnerTagsTextView.setOnClickListener(clickListener);
         runnerBDTextView.setOnClickListener(clickListener);
 
+        runnerClicksTextView.setText(Integer.toString(mActivity.getRunnerClicks()));
         runnerAPTextView.setText(mActivity.getRunnerAP() + " " + getString(R.string.agenda_points));
         runnerLinkTextView.setText(mActivity.getRunnerLink() + " " + getString(R.string.link));
         runnerTagsTextView.setText(mActivity.getRunnerTags() + " " + getString(R.string.tags));
@@ -118,6 +124,12 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
         n.setFocusable(true);
         n.setFocusableInTouchMode(true);
         return;
+    }
+
+    public void clicksLabelClicked(View v) {
+        int current = mActivity.getRunnerClicks() - 1;
+        if (current < 0) current = 4;
+        mActivity.setRunnerClicks(current);
     }
 
     public void APLabelClicked(View v) {

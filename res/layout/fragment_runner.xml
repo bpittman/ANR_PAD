@@ -2,11 +2,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <TextView
+        android:id="@+id/runnerClicksLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:text="@string/clicks"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/runnerClicksValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/runnerClicksLabel"
+        android:layout_alignLeft="@+id/runnerClicksLabel"
+        android:layout_alignRight="@+id/runnerClicksLabel"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="4"
+        android:textSize="35sp" />
+
     <net.simonvt.numberpicker.NumberPicker
         android:id="@+id/runnerCreditsEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/runnerClicksLabel"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
         android:ems="10"

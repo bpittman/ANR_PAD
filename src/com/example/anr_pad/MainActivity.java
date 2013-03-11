@@ -14,15 +14,21 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
     private RunnerFragment runnerFrag;
     private CorpFragment corpFrag;
 
+    private int runnerClicks = 4;
     private int runnerCredits = 5;
     private int runnerAP = 0;
     private int runnerLink = 0;
     private int runnerTags = 0;
     private int runnerBrainDamage = 0;
 
+    private int corpClicks = 3;
     private int corpCredits = 5;
     private int corpAP = 0;
     private int corpBadPublicity = 0;
+
+    public int getRunnerClicks() {
+        return runnerClicks;
+    }
 
     public int getRunnerCredits() {
         return runnerCredits;
@@ -44,6 +50,10 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         return runnerBrainDamage;
     }
 
+    public int getCorpClicks() {
+        return corpClicks;
+    }
+
     public int getCorpCredits() {
         return corpCredits;
     }
@@ -54,6 +64,12 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
     public int getCorpBadPublicity() {
         return corpBadPublicity;
+    }
+
+    public void setRunnerClicks(int value) {
+        runnerClicks = value;
+        TextView runnerClicksTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerClicksValue);
+        runnerClicksTextView.setText(Integer.toString(value));
     }
 
     public void setRunnerCredits(int value) {
@@ -82,6 +98,12 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         runnerBrainDamage = value;
         TextView runnerBDTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerBrainDamageLabel);
         runnerBDTextView.setText(Integer.toString(value) + " " + getString(R.string.brain_damage));
+    }
+
+    public void setCorpClicks(int value) {
+        corpClicks = value;
+        TextView corpClicksTextView = (TextView) corpFrag.getView().findViewById(R.id.corpClicksValue);
+        corpClicksTextView.setText(Integer.toString(value));
     }
 
     public void setCorpAP(int value) {

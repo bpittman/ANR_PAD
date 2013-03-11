@@ -70,6 +70,9 @@ public class CorpFragment extends SherlockFragment implements NumberPickerDialog
             @Override
             public void onClick(final View v) {
                 switch(v.getId()) {
+                   case R.id.corpClicksValue:
+                      clicksLabelClicked(v);
+                      break;
                    case R.id.corpAPLabel:
                       APLabelClicked(v);
                       break;
@@ -82,12 +85,15 @@ public class CorpFragment extends SherlockFragment implements NumberPickerDialog
 
         mActivity = (MainActivity) getActivity();
 
+        TextView corpClicksTextView = (TextView) v.findViewById(R.id.corpClicksValue);
         TextView corpAPTextView = (TextView) v.findViewById(R.id.corpAPLabel);
         TextView corpBadPublicityTextView = (TextView) v.findViewById(R.id.corpBadPublicityLabel);
 
+        corpClicksTextView.setOnClickListener(clickListener);
         corpAPTextView.setOnClickListener(clickListener);
         corpBadPublicityTextView.setOnClickListener(clickListener);
 
+        corpClicksTextView.setText(Integer.toString(mActivity.getCorpClicks()));
         corpAPTextView.setText(mActivity.getCorpAP() + " " + getString(R.string.agenda_points));
         corpBadPublicityTextView.setText(mActivity.getCorpBadPublicity() + " " + getString(R.string.bad_publicity));
 
@@ -103,6 +109,12 @@ public class CorpFragment extends SherlockFragment implements NumberPickerDialog
         n.setFocusable(true);
         n.setFocusableInTouchMode(true);
         return;
+    }
+
+    public void clicksLabelClicked(View v) {
+        int current = mActivity.getCorpClicks() - 1;
+        if (current < 0) current = 3;
+        mActivity.setCorpClicks(current);
     }
 
     public void APLabelClicked(View v) {
