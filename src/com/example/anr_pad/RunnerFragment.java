@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
 import com.example.anr_pad.NumberPickerDialog.NumberPickerDialogListener;
@@ -25,6 +26,7 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
     private float mWeight;
     private int marginLeft, marginRight, marginTop, marginBottom;
     private OnClickListener clickListener;
+    private MainActivity mActivity;
 
     // need a public empty constructor for framework to instantiate
     public RunnerFragment() {
@@ -87,10 +89,22 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
             }
         };
 
-        v.findViewById(R.id.runnerAPLabel).setOnClickListener(clickListener);
-        v.findViewById(R.id.runnerLinkLabel).setOnClickListener(clickListener);
-        v.findViewById(R.id.runnerTagsLabel).setOnClickListener(clickListener);
-        v.findViewById(R.id.runnerBrainDamageLabel).setOnClickListener(clickListener);
+        mActivity = (MainActivity) getActivity();
+
+        TextView runnerAPTextView = (TextView) v.findViewById(R.id.runnerAPLabel);
+        TextView runnerLinkTextView = (TextView) v.findViewById(R.id.runnerLinkLabel);
+        TextView runnerTagsTextView = (TextView) v.findViewById(R.id.runnerTagsLabel);
+        TextView runnerBDTextView = (TextView) v.findViewById(R.id.runnerBrainDamageLabel);
+
+        runnerAPTextView.setOnClickListener(clickListener);
+        runnerLinkTextView.setOnClickListener(clickListener);
+        runnerTagsTextView.setOnClickListener(clickListener);
+        runnerBDTextView.setOnClickListener(clickListener);
+
+        runnerAPTextView.setText(mActivity.getRunnerAP() + " " + getString(R.string.agenda_points));
+        runnerLinkTextView.setText(mActivity.getRunnerLink() + " " + getString(R.string.link));
+        runnerTagsTextView.setText(mActivity.getRunnerTags() + " " + getString(R.string.tags));
+        runnerBDTextView.setText(mActivity.getRunnerBrainDamage() + " " + getString(R.string.brain_damage));
 
         return v;
     }
@@ -109,28 +123,28 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
     public void APLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
         NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
-                this, getString(R.string.agenda_points), 0, 10, 0);
+                this, getString(R.string.agenda_points), 0, 10, mActivity.getRunnerAP());
         numberPickerDialog.show(fm, "fragment_set_ap");
     }
 
     public void linkLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
         NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
-                this, getString(R.string.link), 0, 99, 0);
+                this, getString(R.string.link), 0, 99, mActivity.getRunnerLink());
         numberPickerDialog.show(fm, "fragment_set_link");
     }
 
     public void tagsLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
         NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
-                this, getString(R.string.tags), 0, 99, 0);
+                this, getString(R.string.tags), 0, 99, mActivity.getRunnerTags());
         numberPickerDialog.show(fm, "fragment_set_tags");
     }
 
     public void brainDamageLabelClicked(View v) {
         FragmentManager fm = getChildFragmentManager();
         NumberPickerDialog numberPickerDialog = NumberPickerDialog.newInstance(
-                this, getString(R.string.brain_damage), 0, 99, 0);
+                this, getString(R.string.brain_damage), 0, 99, mActivity.getRunnerBrainDamage());
         numberPickerDialog.show(fm, "fragment_set_brain_damage");
     }
 

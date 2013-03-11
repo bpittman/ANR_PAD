@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
 
@@ -45,18 +46,26 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
     public void setRunnerAP(int value) {
         runnerAP = value;
+        TextView runnerAPTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerAPLabel);
+        runnerAPTextView.setText(Integer.toString(value) + " " + getString(R.string.agenda_points));
     }
 
     public void setRunnerLink(int value) {
         runnerLink = value;
+        TextView runnerLinkTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerLinkLabel);
+        runnerLinkTextView.setText(Integer.toString(value) + " " + getString(R.string.link));
     }
 
     public void setRunnerTags(int value) {
         runnerTags = value;
+        TextView runnerTagsTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerTagsLabel);
+        runnerTagsTextView.setText(Integer.toString(value) + " " + getString(R.string.tags));
     }
 
     public void setRunnerBrainDamage(int value) {
         runnerBrainDamage = value;
+        TextView runnerBDTextView = (TextView) runnerFrag.getView().findViewById(R.id.runnerBrainDamageLabel);
+        runnerBDTextView.setText(Integer.toString(value) + " " + getString(R.string.brain_damage));
     }
 
 	@Override
