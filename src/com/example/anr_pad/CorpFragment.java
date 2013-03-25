@@ -64,7 +64,7 @@ public class CorpFragment extends SherlockFragment implements NumberPickerDialog
 
         View v = inflater.inflate(R.layout.fragment_corp, container, false);
 
-        initializeNumberPicker(v.findViewById(R.id.corpCreditsEdit),0,99,5);
+        initializeNumberPicker(v.findViewById(R.id.corpCreditsEdit),0,999,5);
 
         clickListener = new OnClickListener() {
             @Override

@@ -67,7 +67,7 @@ public class RunnerFragment extends SherlockFragment implements NumberPickerDial
 
         View v = inflater.inflate(R.layout.fragment_runner, container, false);
 
-        initializeNumberPicker(v.findViewById(R.id.runnerCreditsEdit),0,99,5);
+        initializeNumberPicker(v.findViewById(R.id.runnerCreditsEdit),0,999,5);
 
         clickListener = new OnClickListener() {
             @Override
