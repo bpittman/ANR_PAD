@@ -12,5 +12,7 @@
     <string name="bad_publicity">Bad Publicity</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="screen_always_on_title">Keep Screen On</string>
+    <string name="screen_always_on_summary">Always keep screen on while ANR PAD is in the foreground</string>
 
 </resources>

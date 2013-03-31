@@ -2,14 +2,21 @@ package com.example.anr_pad;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class MainActivity extends SherlockFragmentActivity  implements ActionBar.TabListener {
+public class MainActivity extends SherlockFragmentActivity
+                          implements ActionBar.TabListener {
 
     private RunnerFragment runnerFrag;
     private CorpFragment corpFrag;
@@ -123,7 +130,7 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
 		final ActionBar ab = getSupportActionBar();
 
@@ -148,6 +155,22 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
         ft.add(R.id.root, corpFrag);
         ft.commit();
 	}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        Boolean keepScreenOn = sharedPref.getBoolean("pref_screen_always_on", true);
+        if(keepScreenOn) {
+            Log.i("anr_pad","pref_screen_always_on true");
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+        else {
+            Log.i("anr_pad","pref_screen_always_on false");
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
 
     private void showTabsNav() {
         ActionBar ab = getSupportActionBar();
@@ -185,5 +208,20 @@ public class MainActivity extends SherlockFragmentActivity  implements ActionBar
 
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
         // FIXME implement this
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+                case R.id.menu_settings:
+                    startActivity (new Intent (this, SettingsActivity.class));
+                    return true;
+        }
+        return false;
     }
 }
