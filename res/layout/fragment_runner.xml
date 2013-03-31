@@ -1,82 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/runnerClicksLabel"
+    <LinearLayout
+        android:id="@+id/runnerClicksLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
-        android:text="@string/clicks"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/runnerClicksValue"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/runnerClicksLabel"
-        android:layout_alignLeft="@+id/runnerClicksLabel"
-        android:layout_alignRight="@+id/runnerClicksLabel"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:text="4"
-        android:textSize="35sp" />
+        <TextView
+             android:id="@+id/runnerClicksValue"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:text="4"
+             android:textSize="35sp" />
 
-    <net.simonvt.numberpicker.NumberPicker
-        android:id="@+id/runnerCreditsEdit"
+        <TextView
+            android:id="@+id/runnerClicksLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/clicks"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/runnerCreditsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/runnerClicksLabel"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
-        android:ems="10"
-        android:inputType="number" />
+        android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/runnerCreditsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/runnerCreditsEdit"
-        android:text="@string/credits"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <net.simonvt.numberpicker.NumberPicker
+            android:id="@+id/runnerCreditsEdit"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/runnerCreditsLabel"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/credits"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/runnerStatsBoxLayout"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dip"
-        android:layout_toRightOf="@+id/runnerCreditsLabel">
+        android:layout_marginRight="30dip"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/runnerAPLabel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/agenda_points"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/runnerLinkLabel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/link"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/runnerTagsLabel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/tags"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/runnerBrainDamageLabel"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/brain_damage"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
